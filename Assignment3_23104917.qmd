@@ -1,0 +1,275 @@
+
+
+rm(list = ls())
+
+
+# Load necessary libraries
+library(dplyr)
+library(ggplot2)
+library(readr)
+
+# Define file paths
+cost_of_living <-  read.csv("E:\\Assigment3\\movehubcostofliving.csv")
+quality_of_life <- read.csv("E:\\Assigment3\\movehubqualityoflife.csv")
+cities <-  read.csv("E:\\Assigment3\\cities.csv")
+
+
+# 2. Data Preprocessing
+# Ensure city names are consistent across datasets
+cost_of_living$City <- tolower(cost_of_living$City)
+quality_of_life$City <- tolower(quality_of_life$City)
+cities$City <- tolower(cities$City)
+
+str(cost_of_living)
+
+#Checking the dataframe
+head(cost_of_living)
+
+#Checking the dataframe
+head(quality_of_life)
+
+#Checking the dataframe
+head(cities)
+
+
+# Merge the datasets on the 'City' column
+combined_data <- cost_of_living %>%
+  inner_join(quality_of_life, by = "City") %>%
+  inner_join(cities, by = "City")
+
+head(combined_data)
+
+# Handle any missing values, if necessary
+combined_data <- na.omit(combined_data)
+
+# 3. Exploratory Data Analysis (EDA)
+# Summary statistics
+summary(combined_data)
+
+#Count of Unique Values in Each Categorical Column:
+sapply(combined_data[sapply(combined_data, is.character)], function(x) length(unique(x)))
+
+#numerical and categorical valie
+numerical_columns <- names(combined_data)[sapply(combined_data, is.numeric)]
+categorical_columns <- names(combined_data)[sapply(combined_data, function(x) is.factor(x) | is.character(x))]
+
+
+
+
+
+# Create visualizations
+
+ggplot(ggplot(combined_data, aes(x = categorical_columns, y = numerical_columns )) +
+  geom_boxplot() +
+  theme_bw() +
+  labs(title = "Boxplot of NumericalColumn Grouped by CategoricalColumn")
+, aes(x = categorical_columns, y = numerical_columns)) +
+  geom_boxplot() +
+  theme_bw() +
+  labs(title = "Boxplot of NumericalColumn Grouped by CategoricalColumn")
+
+
+
+
+
+# Assuming 'data_proof' is your main data frame and you've already read it in R.
+# Replace 'data_proof' with the actual name of your data frame.
+--------------------------------------------
+# Get the count of each country and sort it
+  library(dplyr)
+library(ggplot2)
+
+# Get the count of each country and sort it
+country <- combined_data %>%
+  group_by(Country) %>%
+  summarise(Size = n()) %>%
+  arrange(desc(Size))
+
+# Create a graph for the top 10 countries
+# Note: We use slice_max to ensure we are getting the top 10 even with ties
+top_countries <- country %>%
+  slice_max(order_by = Size, n = 10)
+
+# Ensure that top_countries is a dataframe
+top_countries <- as.data.frame(top_countries)
+
+# Plotting the top 10 countries
+ggplot(top_countries, aes(x = reorder(Country, Size), y = Size, fill = Country)) +
+  geom_col() +
+  labs(title = "Top 10 Countries by Count", x = "Country", y = "Count") +
+  coord_flip() + # This flips the axes to make the labels readable
+  theme_minimal() +
+  theme(legend.position = "none")  # Removing the legend as it's redundant
+
+
+# Histogram of Average Rent
+ggplot(combined_data, aes(x = Avg.Rent)) + 
+  geom_histogram(binwidth = 100, fill = "blue", color = "black") +
+  labs(title = "Distribution of Average Rent", x = "Average Rent", y = "Frequency")
+
+numerical_columns <- names(combined_data)[sapply(combined_data, is.numeric)]
+
+# Loop through each numerical column to create histograms
+for(column_name in numerical_columns) {
+  # Print the name of the current column
+  print(column_name)
+  
+  # Create a symbol from the string column name
+  column_sym <- sym(column_name)
+  
+  # Plot histogram for the current numerical column using tidy evaluation
+  p <- ggplot(combined_data, aes(x = !!column_sym)) +
+    geom_histogram(binwidth = 1, fill = "blue", color = "black") +
+    theme_minimal() +
+    labs(title = paste("Histogram of", column_name))
+  
+  print(p) # This will actually draw the plot
+}
+
+
+library(dplyr)
+
+
+library(gridExtra)
+
+
+# Assuming city_data is your dataframe, and columns_to_sort is a vector with the names of the columns you want to sort by
+columns_to_sort <- c("Cappuccino", "Cinema", "Wine", "Gasoline", "Avg.Rent", "Avg.Disposable.Income")
+
+top_cities_list <- lapply(columns_to_sort, function(column) {
+  combined_data %>%
+    arrange(desc(!!sym(column))) %>%
+    slice_head(n = 5) %>%
+    select(City, all_of(column))
+})
+
+names(top_cities_list) <- columns_to_sort
+
+# Generate all plots and store them in a list
+plots_list <- list()
+
+for (i in seq_along(top_cities_list)) {
+  column_name <- names(top_cities_list)[i]
+  top_cities <- top_cities_list[[i]]
+  
+  friendly_column_name <- gsub("\\.", " ", column_name)
+  
+  # Create the plot
+  p <- ggplot(top_cities, aes_string(x = 'City', y = column_name)) +
+    geom_col(fill = "steelblue") +
+    coord_flip() +  # Flip the axes to make horizontal bars
+    labs(title = paste("Top 5 Cities by", friendly_column_name),
+         x = "City",
+         y = friendly_column_name) +
+    theme_minimal()
+  
+  # Add the plot to the list
+  plots_list[[i]] <- p
+}
+
+# Arrange the plots in a 2 column by 3 row grid
+grid.arrange(grobs = plots_list, ncol = 2, nrow = 3)
+
+
+
+
+library(plotly)
+
+# Creating the interactive plot
+interactive_plot <- plot_ly(combined_data, x = ~`Avg.Disposable.Income`, y = ~`Movehub.Rating`,
+                            size = ~`Purchase.Power`, color = ~Country, text = ~City,
+                            hoverinfo = 'text+x+y', type = 'scatter', mode = 'markers')
+
+# Adding layout options
+interactive_plot <- interactive_plot %>% layout(title = 'Avg Disposable Income vs Movehub Rating',
+                                                xaxis = list(title = 'Avg Disposable Income'),
+                                                yaxis = list(title = 'Movehub Rating'),
+                                                hovermode = 'closest')
+
+# Show the plot
+interactive_plot
+
+
+install.packages("caret")
+
+
+
+install.packages("textdata")
+library(tidytext)
+library(dplyr)
+library(ggplot2)
+library(textdata)
+library(tidyverse)
+
+# Let's assume 'city_data' is your dataframe and 'Description' is a text column. Replace 'Description' with the actual name of your text column.
+# Example: city_data$Description <- c("This is a sample description text for Lausanne", "Another example text for Zurich")
+
+# Unnest tokens to break down text into words
+word_count <- combined_data %>%
+  unnest_tokens(word, combined_data$City) %>%
+  count(word, sort = TRUE)
+
+# Visualize the most common words
+word_count %>%
+  top_n(10) %>%
+  ggplot(aes(x = reorder(word, n), y = n)) +
+  geom_col() +
+  coord_flip() +
+  labs(x = NULL, y = "Frequency", title = "Top Words in Descriptions")
+
+
+# Assume 'Description' contains the text data.
+combined_data %>%
+  unnest_tokens(word, Description) %>%
+  inner_join(get_sentiments("bing")) %>%
+  count(word, sentiment, sort = TRUE) %>%
+  spread(sentiment, n, fill = 0) %>%
+  mutate(sentiment = positive - negative) %>%
+  arrange(desc(sentiment)) %>%
+  head(10) %>%
+  ggplot(aes(x = reorder(word, sentiment), y = sentiment, fill = sentiment > 0)) +
+  geom_col(show.legend = FALSE) +
+  coord_flip() +
+  labs(y = "Sentiment Score", x = NULL, title = "Top Positive & Negative Words in Descriptions")
+
+
+cities_with_missing_coords <- combined_data %>%
+  filter(is.na(LAT) | is.na(LONG)) %>%
+  select(City)
+
+# Print the cities with missing LAT or LONG values
+print(cities_with_missing_coords)
+
+
+
+install.packages("leaflet")
+library(leaflet)
+
+# Convert LAT and LONG columns to numeric if they aren't already
+combined_data$LAT <- as.numeric(as.character(combined_data$LAT))
+combined_data$LONG <- as.numeric(as.character(combined_data$LONG))
+
+# Check if there are any non-numeric entries in the LAT and LONG columns
+if(any(!is.numeric(combined_data$LAT)) | any(!is.numeric(combined_data$LONG))) {
+  stop("LAT and LONG columns must be numeric")
+}
+
+m <- leaflet(combined_data) %>% 
+  addTiles() %>%  # Add default OpenStreetMap map tiles
+  addCircles(
+    lng = ~LONG, lat = ~LAT, weight = 1,
+    radius = ~Purchase.Power * 50,
+    color = "#ffa500", fillColor = "#ffa500",
+    fillOpacity = 0.5, popup = ~paste(City, "<br>", "Health Care: ", Health.Care, "<br>",
+                                      "Pollution: ", Pollution, "<br>",
+                                      "Quality of Life: ", Quality.of.Life, "<br>",
+                                      "Crime Rating: ", Crime.Rating)
+  ) %>% 
+  addMarkers(
+    lng = ~LONG, lat = ~LAT,
+    popup = ~paste(City, "<br>", "Purchase Power: ", Purchase.Power)
+  )
+
+# Display the map
+m
+
