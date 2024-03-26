@@ -1,0 +1,190 @@
+---
+title: "Diary Writing"
+author: "Bablu Prasad"
+format: html
+editor: visual
+---
+
+## Diary Day-wise:
+
+::: callout-note
+**Diary entry date:** 01 March 2024
+
+**Problem Statement:**
+
+-   **Code -**
+
+    ![](07.png)
+
+-   **Error -**
+
+    ![](08.png)
+
+**Solution:** After doing research I found on [Link](https://stackoverflow.com/questions/12695879/error-r-is-an-unrecognized-escape-in-character-string-starting-c-r) that this error occurs only when you either don't have permission to access this file or the file does not exist at this location. - So I rechecked the path location and another resource, and finally, it got corrected as I was making a mistake with the symbol "/" which was wrong, so after writing "\\" the code executed.
+
+*The correct code is given below:*
+
+![](06.png)
+:::
+
+::: callout-note
+**Diary entry date:** 01 March 2024
+
+**Problem Statement:**
+
+-   **Code -**
+
+    ![](01.png){width="329"}
+
+-   **Error -**
+
+    ![](02.png){width="386" height="29"}
+
+**Solution:** - So the bracket will not help in fetching the column of the data frame, in this case, we have used \$ before the column name and after the data frame. After searching a lot I found on [Link](https://www.statology.org/r-mean-of-column/) which helped me to understand the exact issue.
+
+*The correct code is given below:*
+
+![](03.png){width="348" height="33"}
+:::
+
+::: callout-note
+**Diary entry date:** 01 March 2024
+
+**Problem Statement:**
+
+-   **Code -**
+
+    ![](04.png){width="272"}
+
+-   **Error -**
+
+    ![](05.png){width="498"}
+
+**Solution:** - When we don't file while using R while loading in a variable, it's likely because R is looking in the wrong place. You need to tell R exactly where your file is by setting the working directory to the folder where your file is. This step helps avoid errors like "no such file or directory." For how to do this in RStudio, check the guide at [link](https://statsandr.com/blog/how-to-import-an-excel-file-in-rstudio/.)
+
+![](06.png){width="542"}
+:::
+
+::: callout-note
+**Diary entry date:** 01 March 2024
+
+**Problem Statement:**
+
+-   **Code -**
+
+-   ![](10.png){width="463"}
+
+-   **Error -**
+
+    ![](09.png){width="478"}
+
+**Solution:** When I first ran the program, I encountered an issue where two libraries were not installed, and I continuously received an error while loading. So, I checked [Stack Overflow](https://stackoverflow.com/questions/46773476/error-in-libraryggplot2-there-is-no-package-called-ggplot2) to find the instructions for installing the necessary dependencies and successfully completed the installation. The code is provided below.
+
+![](11.png){width="289"}
+:::
+
+::: callout-note
+**Diary entry date:** 01 March 2024
+
+**Problem Statement:**
+
+-   **Code -**
+
+-   ![](images/Screenshot%202024-03-25%20235855.png){width="565"}
+
+-   **Error -**
+
+    ![](images/1.png)
+
+**Solution:** When I first ran the program, I encountered an issue where I was unable to see any image I had uploaded in Quarto. Rest my all content was visible so after multiple research from different sources including [Link](https://github.com/quarto-dev/quarto-cli/discussions/4385) I got to know that I was following the wrong procedure of copying past images. The correct process was to insert the image from the path.
+
+![](images/Screenshot%202024-03-25%20230643.png){fig-align="center"}
+:::
+
+::: callout-note
+**Diary entry date:** 24 March 2024
+
+**Problem Statement:**
+
+-   **Code -**![](images/2-01.png)
+
+-   **Error -**
+
+    ![](images/3.png)
+
+**Solution:** Simple I have run the install package as mentioned below and the liberary got installed. Nowhere checked for any resource.
+
+![](images/Screenshot%202024-03-25%20231043.png){fig-align="center"}
+:::
+
+::: callout-note
+**Diary entry date:** 24 March 2024
+
+**Problem Statement:**
+
+-   **Code -**![](images/1-01.png)
+
+-   **Error -**
+
+    ![](images/2-02.png)
+
+**Solution:** This error can occur if accidentally reference **`data`** (a base R function) instead of your actual data frame variable. So making sure we are using the correct variable name that contains your dataframe. In this code, I'm using **`!!sym(column)`** for tidy evaluation within **`dplyr`** verbs, which allows you to refer to data frame columns using strings contained in variables. Correct code is given below:
+
+![](images/3-01.png)
+:::
+
+::: callout-note
+**Diary entry date:** 24 March 2024
+
+**Problem Statement:**
+
+-   **Code -**
+
+    ![](images/4.png)
+
+-   **Error -**
+
+    ![](images/5.png)
+
+**Solution:** - While executing i used the wrong data frame name which caused this error throw, after correcting it this block code ran.
+
+*The correct code is given below:*
+
+![](images/6.png){width="465"}
+:::
+
+::: callout-note
+**Diary entry date:** 24 March 2024
+
+**Problem Statement:**
+
+-   **Code -**
+
+    ![](images/7.png){width="424"}
+
+-   **Error -**
+
+    ![](images/8.png){width="504" height="34"}
+
+**Solution:** - I have run the grid.arrange with running the library gridExtra, hence after searching on [Stackoverflow](https://stackoverflow.com/questions/33785464/error-in-grid-arrange-arrangegrob-function), I got to know that I have run the library the library name is given below:
+
+![](images/9.png){width="221" height="43"}
+:::
+
+::: callout-note
+**Diary entry date:** 24 March 2024
+
+**Problem Statement:**
+
+-   **Code -**
+
+    ![](images/10.png)
+
+-   **Error -**
+
+    ![](images/11.png){width="588" height="37"}
+
+**Solution:** - The error message indicates that the **`LAT`** and **`LONG`** columns in my data may not be in a numeric format, which is required for plotting geographic coordinates in Leaflet. So taking help from openAI I have created code that will convert LAT and LONG datatype to numerical. The code is given below:
+
+![](images/12.png){width="623" height="120"}
+:::
