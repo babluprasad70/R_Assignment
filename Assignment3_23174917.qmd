@@ -19,6 +19,8 @@ For more details visit here [Click here](https://www.movehub.com/city-rankings/)
 
 -   cities.csv (merged LAT & LONG from data got from -\> Downloadable Geographic Databases \| Simplemaps.com)
 
+![Data Stream Flow](data_stream_flow.jpg){fig-align="center" width="517"}
+
 ### Importing important Libraries:
 
 ```{r}
@@ -496,7 +498,7 @@ anova(linModel, finalModel)
 
 ```
 
-##### Note: The model found with the stepwise regression did  achieve a better R\^2 score (0.6508697 vs. 0.6145516)
+##### Note: The model found with the stepwise regression did achieve a better R\^2 score (0.6508697 vs. 0.6145516)
 
 ```{r}
 
