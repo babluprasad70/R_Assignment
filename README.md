@@ -9,6 +9,9 @@ Quarto script: Main R script containing the analysis and modeling code.
 File: Directory containing the dataset used for analysis.
 README.md: This file providing an overview of the project.
 
+![data_stream_flow](https://github.com/babluprasad70/R_Assignment/assets/126379428/0052cc96-bd62-4c27-be08-d086addef24e)
+
+
 To run the analysis:
 
 Installed the required R packages if not already installed. (Ensure to install leaflet, ggplot2, corrplot, and MASS packages)
