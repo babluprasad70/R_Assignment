@@ -2,12 +2,18 @@
 title: "Assignment 3 _ Movehub City Rankings"
 author: "Bablu Prasad (23104917)"
 format: html
+html:
+    embed-resources: true
+    toc: true
+    toc-expand: 2
+    toc-title: Contents
+    toc-depth: 3
 editor: visual
 ---
 
 ### Introduction:
 
-Move Hubb know that everyone has different reasons for moving. That’s why they have ranked some of the worlds top cities in relation to key factors, like safety, property affordability and climate. Simply selecting the factors most important to you and they will show you the best cities for you to consider!
+MoveHub know that everyone has different reasons for moving. That’s why they have ranked some of the worlds top cities in relation to key factors, like safety, property affordability and climate. Simply selecting the factors most important to you and they will show you the best cities for you to consider!
 
 For more details visit here [Click here](https://www.movehub.com/city-rankings/)
 
@@ -37,7 +43,7 @@ DiagrammeR::mermaid('
 
 ```
 
-#### Flow of the process perfomed:
+#### Flow of the process performed:
 
 ```{r, echo=FALSE}
 
@@ -54,7 +60,7 @@ digraph {
     D [label = 'Data Preprocessing']
     E [label = <Merging the data<BR/>Based on city>]
     F [label = <Exploratory Data Analysis<BR/>Qualitative and Quantitative>]
-    G [label = <Modeling<BR/>Linear Regression<BR/>Stepwise Linear Regression<BR/>GLM Regression>]  # HTML-like labels for line breaks
+    G [label = <Modeling<BR/>Linear Regression<BR/>Stepwise Linear Regression<BR/>GLM Regression>]  
 
     A -> B
     B -> C
