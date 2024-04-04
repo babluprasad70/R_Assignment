@@ -1,14 +1,13 @@
 ---
 title: "Assignment 3 _ Movehub City Rankings"
 author: "Bablu Prasad (23104917)"
-format: html
-html:
+format:
+  html:
     embed-resources: true
     toc: true
     toc-expand: 2
     toc-title: Contents
     toc-depth: 3
-editor: visual
 ---
 
 ### Introduction:
