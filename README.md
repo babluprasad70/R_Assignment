@@ -5,10 +5,10 @@ This repository contains R scripts (Quarto) for analyzing and modeling based on 
 
 *Contents:*
 Quarto script: Main R script containing the analysis, testing, and modeling code.
-File directory: Contains the dataset used for analysis.
+File directory: Contains the 3 datasets used for analysis.
 README.md: Provides an overview of the project.
 
-*Data Merging Visualization:*
+*Different aataset Merging Visualization:*
 ![Screenshot 2024-04-04 015541](https://github.com/babluprasad70/R_Assignment/assets/126379428/2fb4f042-ec57-463e-bf2b-b0ed885237e9)
 
 *Task performed:*
