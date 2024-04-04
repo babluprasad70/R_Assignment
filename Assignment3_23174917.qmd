@@ -19,7 +19,19 @@ For more details visit here [Click here](https://www.movehub.com/city-rankings/)
 
 -   cities.csv (merged LAT & LONG from data got from -\> Downloadable Geographic Databases \| Simplemaps.com)
 
-![Data Stream Flow](data_stream_flow.jpg){fig-align="center" width="517"}
+```{r diagram}
+DiagrammeR::mermaid('
+%%{init: {"flowchart": {"htmlLabels": false}} }%%
+  graph BT
+     B[<b>movehubcostofliving.csv</b>] -->|City| A(<b>Combined_data</b> - contain details of all 3 datasets)
+    C[<b>movehubqualityoflife.csv</b>] -->|City| A
+    D[<b>read.csv</b>] -->|City| A
+    E[<b>worldcities.xlsx</b>] -->|City| D
+   
+   style A fill:#f9f,stroke:#333,stroke-width:2px,font-weight:bold,font-style:italic;
+')
+
+```
 
 ### Importing important Libraries:
 
@@ -36,6 +48,7 @@ suppressWarnings({
   library(leaflet)  # For interactive maps
   library(corrplot)  # For visualizing correlation matrices
   library(caTools)  # For data splitting
+  library(DiagrammeR)
   library(MASS, exclude = c("dplyr"))  # For statistical functions
 }) 
 # Reset options to default 
