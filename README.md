@@ -28,7 +28,7 @@ Stepwise Regression Modeling: Implements stepwise regression to select significa
 *Results:*
 The final Stepwise Regression model achieved a better R-squared score compared to the initial linear model, indicating improved performance in predicting Movehub Rating.
 
-*Data Source:(
+*Data Source:*
 The dataset used in this analysis can be found on Kaggle, as well as mentioned in the Quarto file. It includes information on various features such as cost of living, crime rate, and environmental factors for different cities.
 - https://www.kaggle.com/datasets/blitzr/movehub-city-rankings
 - https://simplemaps.com/data/world-cities
