@@ -11,7 +11,8 @@ README.md: Provides an overview of the project.
 *Data Merging Visualization:*
 ![Screenshot 2024-04-04 015541](https://github.com/babluprasad70/R_Assignment/assets/126379428/2fb4f042-ec57-463e-bf2b-b0ed885237e9)
 
-Task performed:
+*Task performed:*
+
 <img width="620" alt="Task Performed_mermaid" src="https://github.com/babluprasad70/R_Assignment/assets/126379428/da6247cb-11dd-4a2a-8b26-e7aa208c37da">
 
 
