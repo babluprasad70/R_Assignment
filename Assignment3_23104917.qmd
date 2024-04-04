@@ -19,17 +19,52 @@ For more details visit here [Click here](https://www.movehub.com/city-rankings/)
 
 -   cities.csv (merged LAT & LONG from data got from -\> Downloadable Geographic Databases \| Simplemaps.com)
 
+#### Flow Diagram of Dataset:
+
+I have merged all the 3 datset to one dataset (combined_data) in later operation. Also the 4th [dataset](https://simplemaps.com/) which was having latitudinal and longitudinal data merged initially with city.csv dataset in excel.
+
 ```{r diagram}
 DiagrammeR::mermaid('
 %%{init: {"flowchart": {"htmlLabels": false}} }%%
   graph BT
-     B[<b>movehubcostofliving.csv</b>] -->|City| A(<b>Combined_data</b> - contain details of all 3 datasets)
+     B[<b>movehubcostofliving.csv</b>] ---|City| A(<b>Combined_data</b> - contain details of all 3 datasets)
     C[<b>movehubqualityoflife.csv</b>] -->|City| A
     D[<b>read.csv</b>] -->|City| A
     E[<b>worldcities.xlsx</b>] -->|City| D
    
    style A fill:#f9f,stroke:#333,stroke-width:2px,font-weight:bold,font-style:italic;
 ')
+
+```
+
+#### Flow of the process perfomed:
+
+```{r, echo=FALSE}
+
+library(DiagrammeR)
+grViz("
+digraph {
+    graph [rankdir = LR, bgcolor = '#f4f4f4']
+    node [shape = rectangle, color = blue, style = filled, fillcolor = '#99ccff', fixedsize = true, width = 3, fontsize = 16, fontcolor = white]  # Node styling
+    edge [color = grey, arrowhead = vee, fontsize = 14]
+
+    A [label = 'Movehub City Ranking']
+    B [label = 'Task Performing']
+    C [label = 'Data Understanding']
+    D [label = 'Data Preprocessing']
+    E [label = <Merging the data<BR/>Based on city>]
+    F [label = <Exploratory Data Analysis<BR/>Qualitative and Quantitative>]
+    G [label = <Modeling<BR/>Linear Regression<BR/>Stepwise Linear Regression<BR/>GLM Regression>]  # HTML-like labels for line breaks
+
+    A -> B
+    B -> C
+    B -> D
+    B -> E
+    B -> F
+    B -> G 
+}
+")
+
 
 ```
 
@@ -59,9 +94,9 @@ options(warn.conflicts = FALSE)
 ### Loading the all 3 datasets:
 
 ```{r}
-cost_of_living <- read.csv("E:\\\\Assigment3\\\\movehubcostofliving.csv") 
-quality_of_life <- read.csv("E:\\\\Assigment3\\\\movehubqualityoflife.csv") 
-cities <- read.csv("E:\\\\Assigment3\\\\cities.csv")
+cost_of_living <- read.csv("E:\\Assigment3\\movehubcostofliving.csv") 
+quality_of_life <- read.csv("E:\\Assigment3\\movehubqualityoflife.csv") 
+cities <- read.csv("E:\\Assigment3\\cities.csv")
 
 ```
 
@@ -505,15 +540,30 @@ plotModel(finalModel)
 
 ```
 
+#### -GLM model:
+
+```{r}
+# Fit a glm model using your data 
+glm_model <- glm(Movehub.Rating ~ ., data = train, family = gaussian)
+
+```
+
+```{r}
+# Apply the plotModel function to the glm model
+plotModel(glm_model)
+
+```
+
 ```{r}
 # Comparison between all features and selected ones
-anova(linModel, finalModel)
+anova(linModel, finalModel,glm_model)
 
 ```
 
-##### Note: The model found with the stepwise regression did achieve a better R\^2 score (0.6508697 vs. 0.6145516)
+##### Note: From all the above model i found that lm and glm with all featurer didnot achieve a better R\^2 score over stepwise linear regression (0.6508697 vs. 0.6145516)
 
-```{r}
+#### -------------------------------------------------------------------------------------------------------
 
+## THANKS YOU !!
 
-```
+You can find the code and other data sets here: <https://github.com/babluprasad70/R_Assignment>
