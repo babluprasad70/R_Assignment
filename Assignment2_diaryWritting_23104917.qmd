@@ -1,0 +1,313 @@
+---
+title: "Assignment 2: MS5130 - Diary Writting "
+author: "Bablu Prasad (23104917)"
+format:
+  html:
+    embed-resources: true
+    toc: true
+    toc-expand: 2
+    toc-title: Contents
+    toc-depth: 3
+---
+
+<font color="green" size="6"> Introduction: </font>
+
+This diary assignment is really important because it will helped us in getting better at statistical programming, especially using the R language and Quarto. It's like a journal where we will write about our experiences with programming challenges and how we solved it.
+
+<font color="green" size="6"> Purpose of the assignment: </font>
+
+The primary objective of this assignment is to empower us with the capability to articulate our journey in overcoming technical obstacles, particularly those encountered within the realm of MS5130 coursework. Through the maintenance of a diary writing, me and other students engage in reflective practice, meticulously chronicling their confrontations with technical challenges, the strategies employed to surmount them, and the resulting insights and learning outcomes derived from these experiences.
+
+<font color="green" size="6"> Task Description: </font>
+
+We have been given the task of creating a learning diary. It's basically a series of journal entries where we write about our experiences and what we have learned. Each entry should have the date, a short description of the problem we faced (Problem Statement), and how we solved it (Solution). We should write about different challenges like working with numbers, organizing data, and making graphs.
+
+<font color="red" size="5"> Let's Start --\> Diary Day-wise: 📒</font>
+
+::: callout-note
+<font color="blue" size="4"> **Diary entry date:** </font> **01 March 2024**
+
+**Problem Statement:** While working on my first assignment, I encountered an error in R that prevented me from loading a dataset. The error message was "cannot open the connection." The issue seemed to be related to the file path of the dataset which was stored in my system.
+
+**Code -**
+
+![](images/2.1-02.jpg){width="631"}
+
+**Error -**
+
+![](images/2.2.jpg){width="635"}
+
+**Solution:** Further investigation led me to discover, through a discussion on Stack Overflow, that such errors arise when the file is inaccessible due to permission issues or simply does not exist at the specified path. Upon a careful review of the file path, and cross-referencing with other resources, I realized the error in my approach. The issue was with the use of incorrect directory separators in the file path. In R, backslashes in file paths must be escaped with another backslash. Correcting the slashes from "/" or "" to "\\" resolved the issue, and the code executed successfully.
+
+The correct code is given below:
+
+![](images/2.3-01.jpg){width="490"}
+:::
+
+::: callout-note
+<font color="blue" size="4"> **Diary entry date:** </font> **01 March 2024**
+
+**Problem Statement:** I encountered an error in R when attempting to convert a column within a data frame to a factor. The error message "object 'data.Year' not found" suggested that R could not locate the specified column using the syntax provided. This was perplexing as my intention was to change the data type of the 'Year' column to a factor for subsequent analysis.
+
+**Code -**
+
+![](images/1.1.jpg){width="348" height="51"}
+
+**Error -**
+
+![](images/1.3.png){width="434" height="35"}
+
+**Solution:** The issue was a syntax error in my R code when trying to access a data frame column. Instead of brackets, I needed to use the dollar sign. After referring to [statology](https://www.statology.org/r-mean-of-column/), I corrected the code to data\$Year, allowing me to convert the column to a factor without any further errors.
+
+The correct code is given below:
+
+![](images/1.2.jpg){width="364"}
+:::
+
+::: callout-note
+<font color="blue" size="4"> **Diary entry date:** </font> **01 March 2024**
+
+**Problem Statement:** When attempting to load the ggplot2 and dplyr libraries in first assignment, I was met with errors indicating that the packages were not installed. This presented a significant roadblock, as both libraries are crucial for the data analysis tasks required in my project.
+
+**Code -**
+
+![](images/3.1.png){width="232"}
+
+**Error -**
+
+![](images/3.2.png){width="449"}
+
+**Solution:** To resolve the issue I checked [Stack Overflow](https://stackoverflow.com/questions/46773476/error-in-libraryggplot2-there-is-no-package-called-ggplot2) to find the instructions for installing the necessary dependencies and successfully completed the installation. The code is provided below.
+
+![](images/3.3.png){width="336"}
+:::
+
+::: callout-note
+<font color="blue" size="4"> **Diary entry date:** </font> **01 March 2024**
+
+**Problem Statement:** In the process of creating a document in Quarto, I ran into a roadblock: images I had uploaded were not displaying. Despite the text and other content being visible, the absence of the visual elements was puzzling and disrupted the intended flow and clarity of the document.
+
+**Error -**
+
+![](images/17.1.png){width="550"}
+
+**Solution:** After thoroughly researching and seeking advice from various sources, including an insightful discussion on [GitHub](https://github.com/quarto-dev/quarto-cli/discussions/4385) , I discovered that my approach to incorporating images was incorrect. Rather than pasting images directly, I learned the proper method was to insert them using file paths, also I have changed the image format from png to jpg. This new found understanding of the correct procedure allowed me to seamlessly integrate the images into my Quarto document.
+
+Rendered image after correcting the mistake:
+
+![](images/17.3.png){width="567"}
+:::
+
+::: callout-note
+<font color="blue" size="4"> **Diary entry date:** </font> **24 March 2024**
+
+**Problem Statement:** When setting up the R environment for data analysis, I encountered an error: the 'caret' package, essential for machine learning tasks, was not available in my library. This was indicated by R's response when attempting to load it, preventing me from proceeding with the necessary data modeling steps.
+
+**Code -**
+
+![](images/4.1.jpg)
+
+**Error -**
+
+![](images/4.2.jpg){width="429" height="36"}
+
+**Solution:** Addressing the missing package was straightforward - I executed the install.packages("caret") command to install the 'caret' library. This solution did not require extensive research or resource checks, showcasing the simplicity of managing R packages. With 'caret' successfully installed, I could load it and continue with my analysis without further interruptions.
+
+![](images/4.3.jpg){width="314"}
+:::
+
+::: callout-note
+**Diary entry date:** 24 March 2024
+
+**Problem Statement:** In an R script, when trying to arrange multiple plots in a grid using the grid.arrange function, I encountered an error that stated: "could not find function 'grid.arrange'". This indicated that the function was not available in the current workspace, which was perplexing since the function call seemed correctly formatted.
+
+**Code -**
+
+![](images/7.3.jpg){width="376"}
+
+**Error -**
+
+![](images/7.1.jpg){width="478" height="33"}
+
+**Solution:** The resolution came after some research on [Stack Overflow](https://stackoverflow.com/questions/33785464/error-in-grid-arrange-arrangegrob-function) where I realized that the grid.arrange function is part of the gridExtra package, which I had not loaded into the R session. By simply running library(gridExtra), I was able to access the function and successfully arrange the plots as intended. This experience underscored the importance of ensuring that all necessary packages are loaded before calling their functions. The image of installing grid Extra is given below:
+
+![](images/7.2.jpg){width="231"}
+:::
+
+::: callout-note
+<font color="blue" size="4"> **Diary entry date:** </font> **24 March 2024**
+
+**Problem Statement:** While working with the Leaflet package in R to plot geographic coordinates on a map, I ran into an error that stopped me in my tracks: "addCircles requires numeric longitude/latitude values." This error message suggested that the latitude (LAT) and longitude (LONG) columns in my dataset were not recognized as numeric, which is a prerequisite for plotting points on a map.
+
+**Code -**
+
+![](images/6.2.jpg){width="808"}
+
+**Error -**
+
+![](images/6.1.jpg){width="622"}
+
+**Solution:** To resolve this, I sought the guidance of OpenAI, which helped me develop a piece of code to convert the LAT and LONG columns to the correct numeric data type. The conversion process involved first casting the columns to characters and then to numerics, ensuring any non-numeric entries were appropriately handled. Here's the code that accomplished this:
+
+![](images/6.3.jpg){width="658"}
+:::
+
+::: callout-note
+<font color="blue" size="4"> **Diary entry date:** </font> **24 March 2024**
+
+**Problem Statement:** While working on sorting city data across various lifestyle costs, I encountered an error that obstructed the execution of my R script. The code was supposed to sort cities by factors like "Cappuccino," "Cinema," "Wine," "Gasoline," "Avg_Rent," and "Avg_Disposable_Income" and return the top cities for each category. The error message stated: "object 'city_data' not found," which prevented the function from executing and left me initially puzzled.
+
+**Code -**![](images/8.1.jpg)
+
+**Error -**
+
+![](images/8.2.jpg)
+
+**Solution:** After revisiting the script and analyzing the error, I discovered that I had mistakenly used the wrong dataframe name in my code. This kind of error was not immediately evident as it was a logical rather than a syntactical issue. The dataframe I intended to use had a different name. By replacing 'city_data' with the correct dataframe name, I was able to run the script successfully. The code functioned as expected, sorting the cities and providing the insight I was aiming to extract.
+
+![](images/8.3-01.jpg){width="474"}
+:::
+
+::: callout-note
+<font color="blue" size="4"> **Diary entry date:** </font> **24 March 2024**
+
+**Problem Statement:** I ran into a problem when attempting to display the dimensions of a data frame in R using a syntax similar to Python's, where I wanted to combine text and values in a single print statement. However, this resulted in an error message stating an invalid printing digits issue, suggesting that my syntax was incorrect for the R environment.
+
+**Code -**
+
+![](images/9.1.jpg){width="601"}
+
+**Error -**
+
+![](images/9.2.jpg){width="629"}
+
+**Solution:** After consulting with generative AI tools, I learned that the syntax I was accustomed to from Python does not directly translate to R. To address this, I separated the text and dimension values into individual print statements. This approach eliminated the error and allowed me to display the dimensions of the data frames as required, reflecting the unique syntactical demands of R compared to Python.
+
+![](images/9.3.jpg){width="437"}
+:::
+
+::: callout-note
+<font color="blue" size="4"> **Diary entry date:** </font> **24 March 2024**
+
+**Problem Statement:** While working on splitting a dataset into training and testing sets in R, I encountered an error: "could not find function 'sample.split'." This function is crucial for creating reliable models, as it ensures both sets are representative of the overall dataset. The absence of this function was a significant obstacle, as it prevented me from progressing with model training.
+
+**Code -**
+
+![](images/10.1.png){width="443"}
+
+**Error -**
+
+![](images/10.2.jpg){width="448"}
+
+**Solution:** The error message indicated that R did not recognize the 'sample.split' function, which I was trying to use to partition the data. Realizing that this function belonged to a specific package, I referenced the 'caTools' library in R, which contains the 'sample.split' function. Here’s how I resolved the issue:
+
+![](images/10.3.jpg){width="326" height="24"}
+:::
+
+::: callout-note
+**Diary entry date:** 24 March 2024
+
+**Problem Statement:** I was in the process of refining a linear regression model through stepwise regression using the stepAIC function in R. However, my efforts were met with an error message stating that the function "stepAIC" could not be found. This was a crucial step in my analysis to select the best model based on the Akaike information criterion, and being unable to proceed was a significant impediment.
+
+**Code -**
+
+![](images/11.1.jpg){width="467"}
+
+**Error -**
+
+![](images/11.2.jpg){width="414" height="50"}
+
+**Solution:** Upon encountering the error, I realized that I might have forgotten to load the required package that contains the stepAIC function. The stepAIC function is part of the 'MASS' package, which wasn't active in my session. After running the command **`library(MASS)`**, the function was recognized, and I was able to apply the stepwise regression method to my linear model. Also i got idea about the issue from [stackexchange](https://stats.stackexchange.com/questions/347652/default-stepaic-in-r)
+
+![](images/11.3.jpg){width="363" height="32"}
+:::
+
+::: callout-note
+<font color="blue" size="4"> **Diary entry date:** </font> **24 March 2024**
+
+**Problem Statement:** I have encountered the error "NAs introduced by coercion" arose when I attempted to convert the character-formatted "Lat" and "Long" columns into numerical values. This obstacle halted my progress, rendering me unable to proceed with subsequent analysis steps.
+
+**Code -**
+
+![](images/13.2.jpg){width="483"}
+
+**Error -**
+
+![](images/13.1.jpg){width="438"}
+
+**Solution:** After encountering errors i tried to solve by removing but i was again facing issue in removing so I investigated further by examining the column names using the provided code. I discovered that the "City" entry for Saint Louis was associated with null values for both LAT and LONG. To address this, I manually added the missing values, resolving the issue.
+
+![](images/13.3.jpg){width="683"}
+:::
+
+::: callout-note
+<font color="blue" size="4"> **Diary entry date:** </font> **24 March 2024**
+
+**Problem Statement:** My second assignment involved text mining, and I aimed to create a word cloud in R. Initially, I tried to use the **`wordcloud`** library, but R returned an error indicating that the package was not installed: "there is no package called 'wordcloud'." This was a setback because the word cloud visualization was a pivotal aspect of my analysis, and I needed the **`wordcloud`** package to proceed.
+
+**Code -**
+
+![](images/14.3.jpg){width="393" height="37"}
+
+**Error -**
+
+![](images/14.2.jpg){width="550"}
+
+**Solution:** To resolve the issue, I wrote code to install the **`wordcloud`** package. It was a simple yet crucial step to ensure that the necessary tools were available in my R environment. The installation code is straightforward:
+
+![](images/14.1-01.jpg){width="224"}
+
+After running this installation code, the package was successfully installed, and I was able to load it with the **`library`** function, thus enabling me to proceed with creating the word cloud for my text mining project.
+:::
+
+::: callout-note
+<font color="blue" size="4"> **Diary entry date:** </font> **24 March 2024**
+
+**Problem Statement:** My task was to merge multiple datasets based on a common 'City' column using the **`inner_join`** function from the **`dplyr`** package in R. However, upon execution, I encountered an error indicating a missing argument. This issue was perplexing as it disrupted my workflow for data analysis, and I needed to solve it to progress with my assignment.
+
+**Code -**
+
+![](images/15.1.jpg){width="452"}
+
+**Error -**
+
+![](images/15.3-01.jpg){width="505"}
+
+**Solution:** Initially, the code I used, sourced from educational material, was resulting in an error. Seeking a solution, I turned to [Stackoverflow](https://stackoverflow.com/questions/61219227/summarize-with-custom-function-while-calling-values-from-outside-of-group) and consulted ChatGPT, which led to the realization that I had omitted the **`%>%`**, the forward pipe operator, from the second line of my code. This operator is crucial as it passes the result of one function to the next in a sequence of operations. Correctly implementing the pipe operator allowed the code to execute as intended. The correct code is as
+
+![](images/15.2-01.jpg){width="515"}
+:::
+
+::: callout-note
+<font color="blue" size="4"> **Diary entry date:** </font> **03 April 2024**
+
+**Problem Statement:** In the process of creating an interactive Leaflet map for visualizing the top 10 cities based on Movehub Rating in RStudio, I encountered an error that halted the rendering of my map. The error message stated: "Error: object 'Esri.WorldTopoMap' not found." This suggested that the specified tile provider within the **`addProviderTiles()`** function could not be recognized by Leaflet, thus preventing the map from being displayed.
+
+**Code -**
+
+![](images/16.1.jpg){width="549"}
+
+**Error -**
+
+![](images/16.2.jpg){width="365" height="27"}
+
+**Solution:** After encountering the error, I sought assistance from various resources like [Github](https:/github.com/rstudio/leaflet/issues). The breakthrough came when I realized that the tile provider's name needed to be correctly referenced within a list of providers. The solution involved correctly specifying the "providers" object in the **`addProviderTiles()`** function. The correct code is shown below, which facilitated the successful rendering of the map:
+
+![](images/16.3.jpg){width="586"}
+:::
+
+::: callout-note
+<font color="blue" size="4"> **Diary entry date:** </font> **03 April 2024**
+
+**Problem Statement:** While working with a dataset in Assignment 2, I stumbled upon an issue where I couldn't reference a column named "Quality of life" in my code. Attempts to use both "Quality of life" and "Quality_of_life" as the column name resulted in errors, suggesting that R did not recognize the column. Despite consulting various R programming resources and forums, the solution was not immediately clear, which hindered my data manipulation process.
+
+![](images/18.1.jpg)
+
+**Error -**
+
+![](images/18.2.jpg){width="574"}
+
+**Solution:** After numerous trials and further research, I discovered that the issue was due to R's variable naming conventions and how certain packages interpret them. Specifically, when R imports data, it sometimes transforms spaces in column names into dots (.), depending on the function or package used for importing. This behavior is not consistently documented, leading to confusion. The resolution came when I altered my column reference to "Quality.of.life", matching R's internal representation of the column name. The correct snippet of code that addressed the issue was:
+
+![](images/18.3.jpg){width="615"}
+:::
