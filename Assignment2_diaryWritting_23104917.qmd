@@ -117,7 +117,7 @@ Rendered image after correcting the mistake:
 :::
 
 ::: callout-note
-**Diary entry date:** 24 March 2024
+<font color="blue" size="4"> **Diary entry date:** </font> **24 March 2024**
 
 **Problem Statement:** In an R script, when trying to arrange multiple plots in a grid using the grid.arrange function, I encountered an error that stated: "could not find function 'grid.arrange'". This indicated that the function was not available in the current workspace, which was perplexing since the function call seemed correctly formatted.
 
@@ -129,7 +129,7 @@ Rendered image after correcting the mistake:
 
 ![](images/7.1.jpg){width="478" height="33"}
 
-**Solution:** The resolution came after some research on [Stack Overflow](https://stackoverflow.com/questions/33785464/error-in-grid-arrange-arrangegrob-function) where I realized that the grid.arrange function is part of the gridExtra package, which I had not loaded into the R session. By simply running library(gridExtra), I was able to access the function and successfully arrange the plots as intended. This experience underscored the importance of ensuring that all necessary packages are loaded before calling their functions. The image of installing grid Extra is given below:
+**Solution:** The resolution came after some research on [StackOverflow](https://stackoverflow.com/questions/33785464/error-in-grid-arrange-arrangegrob-function) where I realized that the grid.arrange function is part of the gridExtra package, which I had not loaded into the R session. By simply running library(gridExtra), I was able to access the function and successfully arrange the plots as intended. This experience underscored the importance of ensuring that all necessary packages are loaded before calling their functions. The image of installing grid Extra is given below:
 
 ![](images/7.2.jpg){width="231"}
 :::
@@ -205,7 +205,7 @@ Rendered image after correcting the mistake:
 :::
 
 ::: callout-note
-**Diary entry date:** 24 March 2024
+<font color="blue" size="4"> **Diary entry date:** </font> **24 March 2024**
 
 **Problem Statement:** I was in the process of refining a linear regression model through stepwise regression using the stepAIC function in R. However, my efforts were met with an error message stating that the function "stepAIC" could not be found. This was a crucial step in my analysis to select the best model based on the Akaike information criterion, and being unable to proceed was a significant impediment.
 
